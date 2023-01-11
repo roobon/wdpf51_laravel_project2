@@ -55,10 +55,11 @@
                                 </div>
                             </div>
                             <div class="nk-tb-col tb-col-sm"><span>Name</span></div>
-                            <div class="nk-tb-col"><span>SKU</span></div>
+                            <div class="nk-tb-col"><span>Details</span></div>
                             <div class="nk-tb-col"><span>Price</span></div>
-                            <div class="nk-tb-col"><span>Stock</span></div>
                             <div class="nk-tb-col tb-col-md"><span>Category</span></div>
+                            <div class="nk-tb-col tb-col-md"><em class="tb-asterisk icon ni ni-star-round"></em></div>
+                            <div class="nk-tb-col tb-col-md"><span>Stock</span></div>
                             <div class="nk-tb-col tb-col-md"><em class="tb-asterisk icon ni ni-star-round"></em></div>
                             <div class="nk-tb-col nk-tb-col-tools">
                                 <ul class="nk-tb-actions gx-1 my-n1">
@@ -78,6 +79,7 @@
                                 </ul>
                             </div>
                         </div><!-- .nk-tb-item -->
+                        @foreach($products as $product)
                         <div class="nk-tb-item">
                             <div class="nk-tb-col nk-tb-col-check">
                                 <div class="custom-control custom-control-sm custom-checkbox notext">
@@ -88,73 +90,28 @@
                             <div class="nk-tb-col tb-col-sm">
                                 <span class="tb-product">
                                     <img src="./images/product/a.png" alt="" class="thumb">
-                                    <span class="title">Pink Fitness Tracker</span>
+                                    <span class="title">{{$product->product_name}}</span>
                                 </span>
                             </div>
                             <div class="nk-tb-col">
-                                <span class="tb-sub">UY3749</span>
+                                <span class="tb-lead">
+                                    {{Str::limit($product->product_details, 50, '>>>')}}
+                                </span>
                             </div>
                             <div class="nk-tb-col">
-                                <span class="tb-lead">$ 99.49</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">49</span>
+                                <span class="tb-lead">Taka {{$product->product_price}}</span>
                             </div>
                             <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">Fitbit, Tracker</span>
+                                <span class="tb-sub">{{$product->product_category}}</span>
                             </div>
+
                             <div class="nk-tb-col tb-col-md">
                                 <div class="asterisk tb-asterisk">
                                     <a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a>
                                 </div>
                             </div>
-                            <div class="nk-tb-col nk-tb-col-tools">
-                                <ul class="nk-tb-actions gx-1 my-n1">
-                                    <li class="me-n1">
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product Orders</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .nk-tb-item -->
-                        <div class="nk-tb-item">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="pid2">
-                                    <label class="custom-control-label" for="pid2"></label>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col tb-col-sm">
-                                <span class="tb-product">
-                                    <img src="./images/product/b.png" alt="" class="thumb">
-                                    <span class="title">Purple Smartwatch</span>
-                                </span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">UY3750</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 89.49</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">103</span>
-                            </div>
                             <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">Gadgets, Fitbit, Tracker</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <div class="asterisk tb-asterisk">
-                                    <a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a>
-                                </div>
+                                <span class="tb-sub">{{$product->product_stock}}</span>
                             </div>
                             <div class="nk-tb-col nk-tb-col-tools">
                                 <ul class="nk-tb-actions gx-1 my-n1">
@@ -174,390 +131,7 @@
                                 </ul>
                             </div>
                         </div><!-- .nk-tb-item -->
-                        <div class="nk-tb-item">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="pid3">
-                                    <label class="custom-control-label" for="pid3"></label>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col tb-col-sm">
-                                <span class="tb-product">
-                                    <img src="./images/product/c.png" alt="" class="thumb">
-                                    <span class="title">Black Mi Band Smartwatch</span>
-                                </span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">UY3751</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 299.49</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">68</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">Smartwatch, Tracker</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <div class="asterisk tb-asterisk">
-                                    <a href="#" class="active"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col nk-tb-col-tools">
-                                <ul class="nk-tb-actions gx-1 my-n1">
-                                    <li class="me-n1">
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product Orders</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .nk-tb-item -->
-                        <div class="nk-tb-item">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="pid4">
-                                    <label class="custom-control-label" for="pid4"></label>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col tb-col-sm">
-                                <span class="tb-product">
-                                    <img src="./images/product/d.png" alt="" class="thumb">
-                                    <span class="title">Black Headphones</span>
-                                </span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">UY3752</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 99.49</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">77</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">Headphone, Gadgets</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <div class="asterisk tb-asterisk">
-                                    <a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col nk-tb-col-tools">
-                                <ul class="nk-tb-actions gx-1 my-n1">
-                                    <li class="me-n1">
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product Orders</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .nk-tb-item -->
-                        <div class="nk-tb-item">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="pid5">
-                                    <label class="custom-control-label" for="pid5"></label>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col tb-col-sm">
-                                <span class="tb-product">
-                                    <img src="./images/product/e.png" alt="" class="thumb">
-                                    <span class="title">iPhone 7 Headphones</span>
-                                </span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">UY3753</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 129.49</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">81</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">Headphone, Gadgets</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <div class="asterisk tb-asterisk">
-                                    <a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col nk-tb-col-tools">
-                                <ul class="nk-tb-actions gx-1 my-n1">
-                                    <li class="me-n1">
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product Orders</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .nk-tb-item -->
-                        <div class="nk-tb-item">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="pid6">
-                                    <label class="custom-control-label" for="pid6"></label>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col tb-col-sm">
-                                <span class="tb-product">
-                                    <img src="./images/product/f.png" alt="" class="thumb">
-                                    <span class="title">Purple Blue Gradient iPhone Case</span>
-                                </span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">UY3754</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 29.00</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">28</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">Case, Gadgets</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <div class="asterisk tb-asterisk">
-                                    <a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col nk-tb-col-tools">
-                                <ul class="nk-tb-actions gx-1 my-n1">
-                                    <li class="me-n1">
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product Orders</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .nk-tb-item -->
-                        <div class="nk-tb-item">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="pid7">
-                                    <label class="custom-control-label" for="pid7"></label>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col tb-col-sm">
-                                <span class="tb-product">
-                                    <img src="./images/product/g.png" alt="" class="thumb">
-                                    <span class="title">Plug In Speaker</span>
-                                </span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">UY3755</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 19.49</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">62</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">Gadgets, Speaker</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <div class="asterisk tb-asterisk">
-                                    <a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col nk-tb-col-tools">
-                                <ul class="nk-tb-actions gx-1 my-n1">
-                                    <li class="me-n1">
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product Orders</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .nk-tb-item -->
-                        <div class="nk-tb-item">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="pid8">
-                                    <label class="custom-control-label" for="pid8"></label>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col tb-col-sm">
-                                <span class="tb-product">
-                                    <img src="./images/product/h.png" alt="" class="thumb">
-                                    <span class="title">Wireless Waterproof Speaker</span>
-                                </span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">UY3756</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 59.00</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">37</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">Speaker, Gadgets</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <div class="asterisk tb-asterisk">
-                                    <a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col nk-tb-col-tools">
-                                <ul class="nk-tb-actions gx-1 my-n1">
-                                    <li class="me-n1">
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product Orders</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .nk-tb-item -->
-                        <div class="nk-tb-item">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="pid9">
-                                    <label class="custom-control-label" for="pid9"></label>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col tb-col-sm">
-                                <span class="tb-product">
-                                    <img src="./images/product/j.png" alt="" class="thumb">
-                                    <span class="title">AliExpress Fitness Trackers</span>
-                                </span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">UY3758</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 35.99</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">145</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">Fitbit, Tracker</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <div class="asterisk tb-asterisk">
-                                    <a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col nk-tb-col-tools">
-                                <ul class="nk-tb-actions gx-1 my-n1">
-                                    <li class="me-n1">
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product Orders</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .nk-tb-item -->
-                        <div class="nk-tb-item">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="pid10">
-                                    <label class="custom-control-label" for="pid10"></label>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col tb-col-sm">
-                                <span class="tb-product">
-                                    <img src="./images/product/i.png" alt="" class="thumb">
-                                    <span class="title">Pool Party Drink Holder</span>
-                                </span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">UY3757</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 9.49</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">73</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">Men, Holder</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <div class="asterisk tb-asterisk">
-                                    <a href="#"><em class="asterisk-off icon ni ni-star"></em><em class="asterisk-on icon ni ni-star-fill"></em></a>
-                                </div>
-                            </div>
-                            <div class="nk-tb-col nk-tb-col-tools">
-                                <ul class="nk-tb-actions gx-1 my-n1">
-                                    <li class="me-n1">
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Product</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product Orders</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .nk-tb-item -->
+                        @endforeach
                     </div><!-- .nk-tb-list -->
                 </div>
                 <div class="card-inner">
@@ -618,72 +192,66 @@
         </div><!-- .nk-block-head -->
         <div class="nk-block">
             <div class="row g-3">
-                <div class="col-12">
-                    <div class="form-group">
-                        <label class="form-label" for="product-title">Product Title</label>
-                        <div class="form-control-wrap">
-                            <input type="text" class="form-control" id="product-title">
+                <form action="{{url('/products')}}" method="post">
+                    @csrf
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-label" for="product_name">Product Name</label>
+                            <div class="form-control-wrap">
+                                <input type="text" class="form-control" id="product_name" name="product_name">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="form-label" for="regular-price">Regular Price</label>
-                        <div class="form-control-wrap">
-                            <input type="number" class="form-control" id="regular-price">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-label" for="product_details">Product Details</label>
+                            <div class="form-control-wrap">
+                                <textarea name="product_details" id="product_details" cols="30" rows="6" class="form-control"></textarea>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="form-label" for="sale-price">Sale Price</label>
-                        <div class="form-control-wrap">
-                            <input type="number" class="form-control" id="sale-price">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="form-label" for="regular-price">Price</label>
+                            <div class="form-control-wrap">
+                                <input type="number" class="form-control" id="product_price" name="product_price">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="form-label" for="stock">Stock</label>
-                        <div class="form-control-wrap">
-                            <input type="text" class="form-control" id="stock">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="form-label" for="product_stock">Stock</label>
+                            <div class="form-control-wrap">
+                                <input type="number" class="form-control" id="product_stock" name="product_stock">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="form-label" for="SKU">SKU</label>
-                        <div class="form-control-wrap">
-                            <input type="text" class="form-control" id="SKU">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-label" for="category">Category</label>
+                            <div class="form-control-wrap">
+                                <select name="product_category" id="product_category" class="form-control">
+                                    <option value="">Select one</option>
+                                    @foreach($cats as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->cat_name}}</option>
+                                    @endforeach
+                                </select>
+
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-group">
-                        <label class="form-label" for="category">Category</label>
-                        <div class="form-control-wrap">
-                            <input type="text" class="form-control" id="category">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-group">
-                        <label class="form-label" for="tags">Tags</label>
-                        <div class="form-control-wrap">
-                            <input type="text" class="form-control" id="tags">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="upload-zone small bg-lighter my-2">
-                        <div class="dz-message">
+                    <div class="col-12">
+                        <div class="upload-zone small bg-lighter my-2">
+                            <input type="file" class="form-control" id="dz-message">
                             <span class="dz-message-text">Drag and drop file</span>
+                            </input>
                         </div>
                     </div>
-                </div>
-                <div class="col-12">
-                    <button class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Add New</span></button>
-                </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Add New</span></button>
+                    </div>
+                </form>
             </div>
         </div><!-- .nk-block -->
     </div>

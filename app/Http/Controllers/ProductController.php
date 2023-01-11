@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view("backend.product.index");
+        $data['cats'] = Category::orderBy('cat_name', 'ASC')->get();
+        $data['products'] = Product::orderBy('id', 'DESC')->get();
+        return view("backend.product.index", $data);
     }
 
     /**
@@ -22,10 +25,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +38,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product;
+        $product->product_name = $request->product_name;
+        $product->product_details = $request->product_details;
+        $product->product_price = $request->product_price;
+        $product->product_category = $request->product_category;
+        $product->product_stock = $request->product_stock;
+        $product->product_image = $request->product_image;
+        $product->save();
+        return redirect("/products");
     }
 
     /**
