@@ -2,9 +2,15 @@
 
 @section('content')
 <div class="nk-content-body">
+    @if($msg = Session::get('msg'))
+    <div class="alert alert-success">
+        {{ $msg }}
+    </div>
+    @endif()
     <div class="nk-block-head nk-block-head-sm">
         <div class="nk-block-between">
             <div class="nk-block-head-content">
+
                 <h3 class="nk-block-title page-title">Products</h3>
             </div><!-- .nk-block-head-content -->
             <div class="nk-block-head-content">
@@ -137,19 +143,11 @@
                 <div class="card-inner">
                     <div class="nk-block-between-md g-3">
                         <div class="g">
-                            <ul class="pagination justify-content-center justify-content-md-start">
-                                <li class="page-item"><a class="page-link" href="#"><em class="icon ni ni-chevrons-left"></em></a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><span class="page-link"><em class="icon ni ni-more-h"></em></span></li>
-                                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><em class="icon ni ni-chevrons-right"></em></a></li>
-                            </ul><!-- .pagination -->
+                            {{ $products->links('vendor.pagination.bootstrap-4') }}
                         </div>
                         <div class="g">
                             <div class="pagination-goto d-flex justify-content-center justify-content-md-start gx-3">
-                                <div>Page</div>
+                                <!-- <div>Page</div>
                                 <div>
                                     <select class="form-select js-select2" data-search="on" data-dropdown="xs center">
                                         <option value="page-1">1</option>
@@ -173,7 +171,7 @@
                                         <option value="page-20">20</option>
                                     </select>
                                 </div>
-                                <div>OF 102</div>
+                                <div>OF 102</div> -->
                             </div>
                         </div><!-- .pagination-goto -->
                     </div><!-- .nk-block-between -->
@@ -192,7 +190,17 @@
         </div><!-- .nk-block-head -->
         <div class="nk-block">
             <div class="row g-3">
-                <form action="{{url('/products')}}" method="post">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <form name="productForm" action="{{url('/products')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="col-12">
                         <div class="form-group">
@@ -242,14 +250,14 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="upload-zone small bg-lighter my-2">
+                        <!-- <div class="upload-zone small bg-lighter my-2">
                             <input type="file" class="form-control" id="dz-message">
                             <span class="dz-message-text">Drag and drop file</span>
                             </input>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Add New</span></button>
+                        <button type="button" id="addnew" class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Add New</span></button>
                     </div>
                 </form>
             </div>

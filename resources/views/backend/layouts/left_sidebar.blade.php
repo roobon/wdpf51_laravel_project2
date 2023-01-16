@@ -148,7 +148,7 @@
                                 <a href="{{URL::to('/products')}}" class="nk-menu-link"><span class="nk-menu-text">Product List</span></a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="html/product-card.html" class="nk-menu-link"><span class="nk-menu-text">Product Card</span></a>
+                                <a href="{{ route('products.create')}}" class="nk-menu-link"><span class="nk-menu-text">Product Entry</span></a>
                             </li>
                             <li class="nk-menu-item">
                                 <a href="html/product-details.html" class="nk-menu-link"><span class="nk-menu-text">Product Details</span></a>

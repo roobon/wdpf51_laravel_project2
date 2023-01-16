@@ -15,9 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data['cats'] = Category::orderBy('cat_name', 'ASC')->get();
-        $data['products'] = Product::orderBy('id', 'DESC')->get();
-        return view("backend.product.index", $data);
+        $products = Product::latest()->paginate(20);
+        $cats = Category::orderBy('cat_name', 'ASC')->get();
+        //$data['products'] = Product::orderBy('id', 'DESC')->get();
+        //$products = Product::orderBy('id', 'DESC')->get();
+        return view("backend.product.index", compact('products', 'cats'));
     }
 
     /**
@@ -25,10 +27,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function create()
-    // {
-    //     //
-    // }
+    public function create()
+    {
+        $cats = Category::orderBy('cat_name', 'ASC')->get();
+        return view("backend.product.create", compact('cats'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -38,6 +41,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'product_name' => 'required',
+            'product_details' => 'min:5|max:200',
+            'product_price' => 'required',
+            'product_category' => 'required',
+            'product_stock' => 'required'
+        ]);
         $product = new Product;
         $product->product_name = $request->product_name;
         $product->product_details = $request->product_details;
@@ -46,7 +56,7 @@ class ProductController extends Controller
         $product->product_stock = $request->product_stock;
         $product->product_image = $request->product_image;
         $product->save();
-        return redirect("/products");
+        return redirect('products')->with('msg', "Product Added");
     }
 
     /**
