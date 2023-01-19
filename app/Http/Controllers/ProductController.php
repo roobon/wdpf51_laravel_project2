@@ -46,7 +46,8 @@ class ProductController extends Controller
             'product_details' => 'min:5|max:200',
             'product_price' => 'required',
             'product_category' => 'required',
-            'product_stock' => 'required'
+            'product_stock' => 'required',
+            'product_image' => 'mimes:png,jpg,pdf|max:2048',
         ]);
         $product = new Product;
         $product->product_name = $request->product_name;
@@ -54,7 +55,13 @@ class ProductController extends Controller
         $product->product_price = $request->product_price;
         $product->product_category = $request->product_category;
         $product->product_stock = $request->product_stock;
-        $product->product_image = $request->product_image;
+        if ($request->product_image) {
+            $imageName = time() . '.' . $request->product_image->extension();
+            $request->product_image->move(public_path('product_photos'), $imageName);
+            $product->product_image =  $imageName;
+        } else {
+            $product->product_image =  '';
+        }
         $product->save();
         return redirect('products')->with('msg', "Product Added");
     }
@@ -67,7 +74,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+
+        return view("backend.product.single", compact('product'));
     }
 
     /**

@@ -82,11 +82,12 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <!-- <div class="upload-zone small bg-lighter my-2">
-                            <input type="file" class="form-control" id="dz-message">
-                            <span class="dz-message-text">Drag and drop file</span>
-                            </input>
-                        </div> -->
+                    <!-- <div class="upload-zone small bg-lighter my-2"> -->
+                    <label class="form-label" for="product_image">Product Image</label>
+                    <input type="file" class="form-control" id="product_image" name="product_image">
+                    <span class="dz-message-text">Drag and drop file</span>
+                    </input>
+                    <!-- </div> -->
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Add New</span></button>
