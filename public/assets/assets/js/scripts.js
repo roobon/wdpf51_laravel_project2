@@ -1133,3 +1133,9 @@ $(document).ready(function () {
         });
     });
 });
+// JQuery for Product removing
+// $(document).ready(function () {
+//     $(".remove").click(function(){
+//         $(this).
+//     })
+// });

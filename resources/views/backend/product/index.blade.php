@@ -133,7 +133,8 @@
                             data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                           <div class="dropdown-menu dropdown-menu-end">
                             <ul class="link-list-opt no-bdr">
-                              <li><a href="#"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
+                              <li><a href="{{ route('products.edit', $product->id) }}"><em
+                                    class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
                               <li>
                                 <a href="{{ route('products.show', $product->id) }}"><em
                                     class="icon ni ni-eye"></em><span>View Product</span>
@@ -142,7 +143,13 @@
 
                               <li><a href="#"><em class="icon ni ni-activity-round"></em><span>Product
                                     Orders</span></a></li>
-                              <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Product</span></a>
+                              <li>
+                                <form method="post" onsubmit="return confirm('Are you sure you want to delete')"
+                                  action="{{ route('products.destroy', $product->id) }}" class="remove">
+                                  {{ method_field('DELETE') }}
+                                  @csrf
+                                  <em class="icon ni ni-trash"></em><input type="submit" value="Remove">
+                                </form>
                               </li>
                             </ul>
                           </div>
@@ -162,30 +169,30 @@
               <div class="g">
                 <div class="pagination-goto d-flex justify-content-center justify-content-md-start gx-3">
                   <!-- <div>Page</div>
-                                          <div>
-                                              <select class="form-select js-select2" data-search="on" data-dropdown="xs center">
-                                                  <option value="page-1">1</option>
-                                                  <option value="page-2">2</option>
-                                                  <option value="page-4">4</option>
-                                                  <option value="page-5">5</option>
-                                                  <option value="page-6">6</option>
-                                                  <option value="page-7">7</option>
-                                                  <option value="page-8">8</option>
-                                                  <option value="page-9">9</option>
-                                                  <option value="page-10">10</option>
-                                                  <option value="page-11">11</option>
-                                                  <option value="page-12">12</option>
-                                                  <option value="page-13">13</option>
-                                                  <option value="page-14">14</option>
-                                                  <option value="page-15">15</option>
-                                                  <option value="page-16">16</option>
-                                                  <option value="page-17">17</option>
-                                                  <option value="page-18">18</option>
-                                                  <option value="page-19">19</option>
-                                                  <option value="page-20">20</option>
-                                              </select>
-                                          </div>
-                                          <div>OF 102</div> -->
+                                                                              <div>
+                                                                                  <select class="form-select js-select2" data-search="on" data-dropdown="xs center">
+                                                                                      <option value="page-1">1</option>
+                                                                                      <option value="page-2">2</option>
+                                                                                      <option value="page-4">4</option>
+                                                                                      <option value="page-5">5</option>
+                                                                                      <option value="page-6">6</option>
+                                                                                      <option value="page-7">7</option>
+                                                                                      <option value="page-8">8</option>
+                                                                                      <option value="page-9">9</option>
+                                                                                      <option value="page-10">10</option>
+                                                                                      <option value="page-11">11</option>
+                                                                                      <option value="page-12">12</option>
+                                                                                      <option value="page-13">13</option>
+                                                                                      <option value="page-14">14</option>
+                                                                                      <option value="page-15">15</option>
+                                                                                      <option value="page-16">16</option>
+                                                                                      <option value="page-17">17</option>
+                                                                                      <option value="page-18">18</option>
+                                                                                      <option value="page-19">19</option>
+                                                                                      <option value="page-20">20</option>
+                                                                                  </select>
+                                                                              </div>
+                                                                              <div>OF 102</div> -->
                 </div>
               </div><!-- .pagination-goto -->
             </div><!-- .nk-block-between -->
@@ -266,10 +273,10 @@
             </div>
             <div class="col-12">
               <!-- <div class="upload-zone small bg-lighter my-2">
-                                      <input type="file" class="form-control" id="dz-message">
-                                      <span class="dz-message-text">Drag and drop file</span>
-                                      </input>
-                                  </div> -->
+                                                                          <input type="file" class="form-control" id="dz-message">
+                                                                          <span class="dz-message-text">Drag and drop file</span>
+                                                                          </input>
+                                                                      </div> -->
             </div>
             <div class="col-12">
               <button type="button" id="addnew" class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Add
