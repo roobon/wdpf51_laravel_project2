@@ -107,7 +107,6 @@ class ProductController extends Controller
             'product_stock' => 'required',
             'product_image' => 'mimes:png,jpg,pdf|max:2048',
         ]);
-
         $product->product_name = $request->product_name;
         $product->product_details = $request->product_details;
         $product->product_price = $request->product_price;
