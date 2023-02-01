@@ -8,11 +8,16 @@
   <title>@yield('title')</title>
   @stack('styles')
   <link rel="stylesheet" href="style.css">
+  {!! HTML::style('style.css') !!}
 </head>
 
 <body>
 
-  @stack('scripts')
+  {{-- @stack('scripts') --}}
+
+  @section('body')
+    <h1>Body header</h1>
+  @show
 </body>
 
 </html>
