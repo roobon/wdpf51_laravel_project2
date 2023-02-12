@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\DogsController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\SearchProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('dogs', DogsController::class);
 Route::resource('products', ProductController::class);
+Route::post('search', [SearchProduct::class, 'search']);
