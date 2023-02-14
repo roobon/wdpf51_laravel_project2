@@ -22,5 +22,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::apiResource('dogs', DogsController::class);
-Route::resource('products', ProductController::class);
+Route::apiResource('products', ProductController::class);
 Route::post('search', [SearchProduct::class, 'search']);
